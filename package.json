@@ -1,0 +1,55 @@
+{
+  "name": "lets-learn-git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --watch --testTimeout=10000"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umairx97/lets-learn-git.git"
+  },
+  "author": {
+    "name": "Umair ahmed",
+    "url": "https://github.com/umairx97"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umairx97/lets-learn-git/issues"
+  },
+  "homepage": "https://github.com/umairx97/lets-learn-git#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "node-emoji": "^1.10.0",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {
+    "get-port-sync": "^1.0.0",
+    "jest": "^25.1.0",
+    "standard": "^14.3.1",
+    "supertest": "^4.0.2",
+    "tape": "^4.13.0"
+  }
+}
