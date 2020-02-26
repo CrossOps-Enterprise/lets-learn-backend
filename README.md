@@ -1,6 +1,6 @@
 # Engineering Onboarding Guide
 
-Hey there! You're probably reading this because you've been invited to take one of our code challenges or are working on an Outlier engineering project. Welcome!
+Hey there! You're probably reading this because you've been invited to take one of our code challenges or are working on an engineering project. Welcome!
 
 Code quality is very important to us, and we hope it is to you too. In this guide we'll share our engineering process that we use to ensure that we can build quickly while keeping our projects stable and maintainable. We'll cover topics like code style, commit guidelines, project workflow, and team communication.
 
