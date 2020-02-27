@@ -4,7 +4,7 @@ const request = require('supertest')
 const server = require('../server')({ port })
 
 describe('System endpoints', () => {
-  it('should create a new post', async () => {
+  it('Home route should return expected response', async () => {
     const expectedResponse = {
       success: true,
       version: '1.0.0',
