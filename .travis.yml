@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "10"
+notifications:
+  slack: dev-team-4:vxELjUC7QRCnjZAnvR097ofz
+before_script:
+  - npm install
+script:
+  - npm test
