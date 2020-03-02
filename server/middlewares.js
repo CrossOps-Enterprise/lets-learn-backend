@@ -1,11 +1,16 @@
 const bodyParser = require('body-parser').json({ extended: false })
 const cookieParser = require('cookie-parser')()
-const logger = require('morgan')('dev')
 const cors = require('cors')()
+const logger = require('../services/logger')
 
 module.exports = {
   bodyParser,
   cookieParser,
-  logger,
+  appLogger,
   cors
+}
+
+function appLogger (req, res, next) {
+  req.appLogger = logger
+  next()
 }

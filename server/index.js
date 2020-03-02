@@ -5,7 +5,7 @@ const homeController = require('./controllers/home.controller')
 app.use(middleware.bodyParser)
 app.use(middleware.cookieParser)
 app.use(middleware.cors)
-app.use(middleware.logger)
+app.use(middleware.appLogger)
 
 app.get('/', homeController.home)
 
