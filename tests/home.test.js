@@ -1,6 +1,5 @@
 const port = require('get-port-sync')()
 const request = require('supertest')
-
 const server = require('../server')({ port })
 
 describe('System endpoints', () => {
