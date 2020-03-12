@@ -7,14 +7,22 @@ const myFormat = printf(({ level, message, timestamp }) => {
 })
 
 const logger = createLogger({
-  format: combine(
-    colorize(),
-    timestamp(),
-    myFormat
-  ),
+
   transports: [
-    new transports.Console(),
-    new transports.File({ filename: path.join(__dirname, '../logs/app.log') })
+    new transports.Console({
+      format: combine(
+        colorize(),
+        timestamp(),
+        myFormat
+      )
+    }),
+    new transports.File({
+      filename: path.join(__dirname, '../logs/app.log'),
+      format: combine(
+        timestamp(),
+        myFormat
+      )
+    })
   ]
 })
 

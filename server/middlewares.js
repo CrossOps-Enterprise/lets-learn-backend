@@ -12,5 +12,6 @@ module.exports = {
 
 function appLogger (req, res, next) {
   req.appLogger = logger
+  logger.info(`${req.hostname} ${req.path} ${req.method} ${req.header('user-agent')} `)
   next()
 }
