@@ -45,6 +45,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.4",
     "get-port-sync": "^1.0.0",
     "jest": "^25.1.0",
     "standard": "^14.3.1",
