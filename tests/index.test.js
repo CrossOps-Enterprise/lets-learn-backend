@@ -7,8 +7,8 @@ beforeAll(() => {
   logger.info('Running Test Suites ****************')
 })
 
-describe('System endpoints', () => {
-  it('Home route should return success version and name', async () => {
+describe('System endpoint tests', () => {
+  it('GET / route should return success version and name', async () => {
     const expectedResponse = {
       success: true,
       version: '1.0.0',
@@ -19,13 +19,13 @@ describe('System endpoints', () => {
     expect(body).toEqual(expectedResponse)
   })
 
-  it('Health check should return status UP and message OK', async () => {
+  it('GET /health should return status UP and message OK', async () => {
     const { body } = await request(server).get('/health')
     expect(body.message).toBe('OK')
     expect(body.status).toBe('UP')
   })
 
-  it('Accessing unknown route should return not found', async () => {
+  it('GET /unknown should return not found', async () => {
     const response = await request(server).get('/unknown')
     const expectedError = {
       error: 'Not Found'
