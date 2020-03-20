@@ -7,4 +7,7 @@ require('./server')({ port: PORT }, () => {
   console.log(
     chalk.yellow.bold(`${emoji.get('rocket')} ${name} ${version} listening on port ${PORT}`)
   )
+  console.log(
+    chalk.yellow.bold(`${emoji.get('rocket')} GraphQL Endpoint: http://localhost:${PORT}/graphql `)
+  )
 })
