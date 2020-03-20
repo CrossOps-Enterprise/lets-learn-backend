@@ -15,19 +15,19 @@ Line length should be limited to 80 characters.
 
 ## Code Principles
 
-* Code should be as simple, explicit, and as easy to understand as possible.
-* Functional style is preferred to OOP. When possible functions should be pure and not rely on shared state or side effects.
-* Avoid large frameworks; use small modules that are easy to understand.
-* Modules must use this order so that they can be understood quickly when skimmed:
+- Code should be as simple, explicit, and as easy to understand as possible.
+- Functional style is preferred to OOP. When possible functions should be pure and not rely on shared state or side effects.
+- Avoid large frameworks; use small modules that are easy to understand.
+- Modules must use this order so that they can be understood quickly when skimmed:
   1. External dependencies: anything listed in `package.json`, e.g. `require('http')`
   2. Internal dependencies: any files created in the project itself, e.g. `require('./api')`
-  3. Constants and other setup: this includes anything *absolutely necessary* to be defined before `module.exports`
+  3. Constants and other setup: this includes anything _absolutely necessary_ to be defined before `module.exports`
   4. Exports: `module.exports` should be as close to the beginning of the file as possible. The module should export either a single function or a "catalog object", e.g. `module.exports = { method1, method2, ... }`
   5. Functions: these go after the above sections. Use function hoisting to control the placement of your functions so that important, high-level functions are above smaller more-general utility functions.
-* Use descriptive variable names. Function names should be a verb like `route()` or verb combined with a noun like `routeRequest()`.
-* Keep your functions short. If your function is over 40 lines, you should have a good reason.
-* Functions should not accept more than 3 arguments. Use a single options object if you need more arguments.
-* Keep nesting to a minimum. Use [early returns](https://blog.timoxley.com/post/47041269194/avoid-else-return-early), single-line conditionals, and function calls.
+- Use descriptive variable names. Function names should be a verb like `route()` or verb combined with a noun like `routeRequest()`.
+- Keep your functions short. If your function is over 40 lines, you should have a good reason.
+- Functions should not accept more than 3 arguments. Use a single options object if you need more arguments.
+- Keep nesting to a minimum. Use [early returns](https://blog.timoxley.com/post/47041269194/avoid-else-return-early), single-line conditionals, and function calls.
 
 ## Git & Github
 
@@ -35,21 +35,20 @@ Version control is a project's best source of documentation when done correctly.
 
 PRs should be small and focused. Each commit should solve a single problem and be covered by a test that exemplifies that particular feature or fix.
 
-All PRs must be reviewed by a teammate before they are eligle to be merged into  the `master` branch. Large PRs are difficult to review. Be sure to break large PRs into smaller ones so that they can be reviewed quickly and deployed to production.
+All PRs must be reviewed by a teammate before they are eligle to be merged into the `master` branch. Large PRs are difficult to review. Be sure to break large PRs into smaller ones so that they can be reviewed quickly and deployed to production.
 
-* Never commit passwords, access tokens, or other credentials into version control. If you think you absolutely have to, ask first. If you do this by accident, tell someone immediately.
-* Each commit should be as small and as simple as possible.
-* The project must be operational and have all tests passing after every commit.
-* Use [Conventional Commits](https://www.conventionalcommits.org)
-  * See the "Commit Types" section below
-  * Valid types are `chore:`, `docs:`, `style:`, `refactor:`, `perf:`, and `test:`
-* Do not mix feature changes (added functionality) with fixes (restored functionality), refactors (no change in functionality), or style changes (only whitespace or other cosmetic changes).
-* Before a PR is ready for review, make sure that it is a single commit. If the combined commit is too large or disparate, consider multiple PRs.
-* The exception to the above single commit rule is when a PR introduces new packages. Create one extra commit in the same PR for each new package your PR needs.
-* Do not modify a project's `.gitignore` to add files related to your editor or environment. Use your own [global .gitignore](https://stackoverflow.com/questions/7335420/global-git-ignore/22885996#22885996) for that instead.
-* Be sure that your PRs have descriptive titles that explain what has been changed. Typically the commit message is sufficient. "Fixes #66" is not.
-* When submitting a PR with UI or visual changes, please add before and after screenshots to the PR. This makes it easy for the reviewer to quickly see what has been done.
-
+- Never commit passwords, access tokens, or other credentials into version control. If you think you absolutely have to, ask first. If you do this by accident, tell someone immediately.
+- Each commit should be as small and as simple as possible.
+- The project must be operational and have all tests passing after every commit.
+- Use [Conventional Commits](https://www.conventionalcommits.org)
+  - See the "Commit Types" section below
+  - Valid types are `chore:`, `docs:`, `style:`, `refactor:`, `perf:`, and `test:`
+- Do not mix feature changes (added functionality) with fixes (restored functionality), refactors (no change in functionality), or style changes (only whitespace or other cosmetic changes).
+- Before a PR is ready for review, make sure that it is a single commit. If the combined commit is too large or disparate, consider multiple PRs.
+- The exception to the above single commit rule is when a PR introduces new packages. Create one extra commit in the same PR for each new package your PR needs.
+- Do not modify a project's `.gitignore` to add files related to your editor or environment. Use your own [global .gitignore](https://stackoverflow.com/questions/7335420/global-git-ignore/22885996#22885996) for that instead.
+- Be sure that your PRs have descriptive titles that explain what has been changed. Typically the commit message is sufficient. "Fixes #66" is not.
+- When submitting a PR with UI or visual changes, please add before and after screenshots to the PR. This makes it easy for the reviewer to quickly see what has been done.
 
 ## Commit Types
 

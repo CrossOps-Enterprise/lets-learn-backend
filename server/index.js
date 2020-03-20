@@ -5,6 +5,7 @@ const { health } = require('./controllers/health.controller')
 
 app.use(middleware.bodyParser)
 app.use(middleware.cookieParser)
+
 app.use(middleware.cors)
 app.use(middleware.appLogger)
 

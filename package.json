@@ -6,7 +6,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test jest",
+    "lint:standard": "standard",
+    "lint:standard:fix": "standard --fix",
+    "lint:prettier": "prettier --check './**/*.{html,css,json,md}'",
+    "lint:prettier:fix": "prettier --write './**/*.{html,css,json,md}'",
+    "lint:all": "npm run lint:standard:fix && lint:prettier:fix"
   },
   "jest": {
     "testEnvironment": "node",
@@ -40,8 +45,12 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
     "express": "^4.17.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "node-emoji": "^1.10.0",
+    "prettier": "^1.19.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -51,5 +60,14 @@
     "standard": "^14.3.1",
     "supertest": "^4.0.2",
     "tape": "^4.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "standard --fix",
+    "*.{html,css,scss,json,md}": "prettier --write"
   }
 }
