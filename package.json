@@ -13,12 +13,6 @@
     "lint:prettier:fix": "prettier --write './**/*.{html,css,json,md}'",
     "lint:all": "npm run lint:standard:fix && lint:prettier:fix"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
   "standard": {
     "env": [
       "jest"
