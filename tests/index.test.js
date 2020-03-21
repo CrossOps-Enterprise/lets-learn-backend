@@ -33,6 +33,28 @@ describe('System endpoint tests', () => {
     expect(response.status).toBe(404)
     expect(response.body).toEqual(expectedError)
   })
+
+  it('POST /graphql should return 200 and object', async () => {
+    const response = await request(server).post('/graphql')
+      .send({
+        query: `{
+        getAllUsers{
+          _id
+        }
+      }`
+      })
+
+    const expectedBody = {
+      data: {
+        getAllUsers: [
+          { _id: '2101-2015' },
+          { _id: '2030-2015' }
+        ]
+      }
+    }
+    expect(response.status).toBe(200)
+    expect(response.body).toEqual(expectedBody)
+  })
 })
 
 afterAll((done) => {
