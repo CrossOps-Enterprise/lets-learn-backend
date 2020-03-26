@@ -2,6 +2,7 @@ const port = require('get-port-sync')()
 const request = require('supertest')
 const server = require('../server')({ port })
 const logger = require('../services/logger')
+const queries = require('./queries')
 
 beforeAll(() => {
   logger.info('Running Test Suites ****************')
@@ -34,26 +35,28 @@ describe('System endpoint tests', () => {
     expect(response.body).toEqual(expectedError)
   })
 
-  it('POST /graphql should return 200 and object', async () => {
-    const response = await request(server).post('/graphql')
-      .send({
-        query: `{
-        getAllUsers{
-          _id
-        }
-      }`
-      })
+  it('POST /graphql getAllUsers should return 200 and expected object', async () => {
+    const response = await request(server).post('/graphql').send({ query: queries.getAllUsers })
 
     const expectedBody = {
-      data: {
-        getAllUsers: [
-          { _id: '2101-2015' },
-          { _id: '2030-2015' }
-        ]
-      }
+      getAllUsers: [
+        { _id: '2101-2015' },
+        { _id: '2030-2015' }
+      ]
     }
+
     expect(response.status).toBe(200)
-    expect(response.body).toEqual(expectedBody)
+    expect(response.body.data).toEqual(expectedBody)
+  })
+
+  it('POST /graphql addUser should return 200 and expected object', async () => {
+    const response = await request(server).post('/graphql').send({ query: queries.addUser })
+    const expected = {
+      addUser: { email: 'test@graphql.com' }
+    }
+
+    expect(response.status).toBe(200)
+    expect(response.body.data).toEqual(expected)
   })
 })
 
