@@ -4,6 +4,7 @@ node_js:
 notifications:
   slack: dev-team-4:vxELjUC7QRCnjZAnvR097ofz
 before_install: 
+  npm config —global set :registry https://npm.pkg.github.com
   echo “//npm.pkg.github.com/:authToken=${GH_TOKEN}” > .npmrc
 before_script:
   - npm install
