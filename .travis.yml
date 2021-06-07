@@ -3,6 +3,8 @@ node_js:
   - "10"
 notifications:
   slack: dev-team-4:vxELjUC7QRCnjZAnvR097ofz
+before_install: 
+  echo “//npm.pkg.github.com/:authToken=${GH_TOKEN}” > .npmrc
 before_script:
   - npm install
 script:
